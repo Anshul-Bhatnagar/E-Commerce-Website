@@ -11,6 +11,8 @@ const authenticateToken = require('./authMiddleware');
 const mailer = require('./mailer')
 const crypto = require('crypto');
 const cors = require('cors')
+const multer = require('multer');
+const path = require('path');
 const { log, error } = require('console');
 
 
@@ -25,6 +27,10 @@ const port = process.env.port || 5000;
 app.use(express.json());
 app.use(cors());
 app.use('/products',authenticateToken);
+app.use('/uploads',express.static('uploads'));
+
+app.use(express.urlencoded({ extended: true }));
+
 
 // mysql connection
 
@@ -133,14 +139,43 @@ const productSchema = joi.object({
 
 });
 
+const storage = multer.diskStorage({
+    destination: (req,file,cb) => {
+        cb(null, 'uploads/');
+    },
+    filename: (req,file,cb) => {
+        cb(null,Date.now() + path.extname(file.originalname));
+    },
+});
 
-app.post('/products',(req,res) => {
+const upload = multer({storage:storage});
+const baseUrl = 'http://localhost:5000/uploads/';
+
+
+app.post('/products',upload.single('image'),(req,res) => {
+   
+
+
+    //console.log(req.body);  // This will help verify if 'name', 'description', etc., are being received
+    //console.log(req.file);  // This will log the uploaded file
     const {error} =productSchema.validate(req.body);
     if(error){
         return res.status(400).json({error:error.details[0].message});
     }
 
-    const newProduct = req.body;
+    const {name,price,description,stock} = req.body;
+    const image = req.file ? baseUrl+req.file.filename : null;
+    console.log('Image file name:', image); // Log the image filename
+
+
+    const newProduct = {
+        name,
+        price,
+        description,
+        stock,
+        image
+    };
+    console.log('Product to be inserted:', newProduct);
     productModel.addProduct(newProduct,(err,result) =>{
         if(err){
             return res.status(500).json({error:err});

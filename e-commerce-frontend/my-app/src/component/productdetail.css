@@ -1,0 +1,81 @@
+/* productdetail.css */
+
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5; /* Light background for contrast */
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Product Detail Container */
+  .product-detail {
+    max-width: 800px; /* Maximum width for the product detail section */
+    margin: 20px auto; /* Center the container */
+    padding: 20px; /* Padding around the container */
+    background-color: white; /* White background for product details */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  }
+  
+  /* Heading Styles */
+  .product-detail h1 {
+    font-size: 2.5rem; /* Font size for the main heading */
+    color: #333; /* Dark text color */
+    text-align: center; /* Center the heading */
+    margin-bottom: 20px; /* Margin below the heading */
+  }
+  
+  /* Product Image Styles */
+  .product-detail img {
+    display: block; /* Ensure image behaves as a block element */
+    margin: 0 auto; /* Center the image */
+    border-radius: 10px; /* Rounded corners for the image */
+    object-fit: cover; /* Maintain aspect ratio and fill the space */
+  }
+  
+  /* Product Name Styles */
+  .product-detail h3 {
+    font-size: 2rem; /* Font size for product name */
+    color: #007bff; /* Bootstrap primary color for emphasis */
+    margin: 15px 0; /* Margin around the product name */
+  }
+  
+  /* Product Description Styles */
+  .product-detail p {
+    font-size: 1.2rem; /* Font size for product description */
+    color: #555; /* Dark gray color for text */
+    line-height: 1.5; /* Improved line height for readability */
+    margin: 10px 0; /* Margin around the paragraphs */
+  }
+  
+  /* Price Styles */
+  .product-detail p:last-of-type {
+    font-weight: bold; /* Bold font for the price */
+    font-size: 1.5rem; /* Slightly larger font size for the price */
+    color: #28a745; /* Bootstrap success color for price */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .product-detail {
+      padding: 15px; /* Reduce padding on smaller screens */
+    }
+  
+    .product-detail h1 {
+      font-size: 2rem; /* Smaller font size for main heading */
+    }
+  
+    .product-detail h3 {
+      font-size: 1.5rem; /* Smaller font size for product name */
+    }
+  
+    .product-detail p {
+      font-size: 1rem; /* Smaller font size for paragraphs */
+    }
+  
+    .product-detail p:last-of-type {
+      font-size: 1.2rem; /* Smaller font size for price */
+    }
+  }
+  

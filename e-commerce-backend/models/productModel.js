@@ -26,8 +26,8 @@ const getProductById = (id,callback) => {
 // function to add a new product
 
 const addProduct = (product, callback) => {
-    const query = 'INSERT INTO products (name, description, price, stock) VALUES (?,?,?,?)';
-    db.query(query, [product.name,product.description,product.price,product.stock], callback);
+    const query = 'INSERT INTO products (name, description, price, stock,image) VALUES (?,?,?,?,?)';
+    db.query(query, [product.name,product.description,product.price,product.stock,product.image], callback);
 
 };
 

@@ -1,0 +1,77 @@
+/* home.css */
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif; /* Font style for the entire app */
+    background-color: #f5f5f5; /* Light background for contrast */
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Product Listing Styles */
+  .product-listing {
+    max-width: 1200px; /* Maximum width for the product listing */
+    margin: 20px auto; /* Centering the listing */
+    padding: 20px; /* Padding around the listing */
+    background-color: white; /* White background for the listing */
+    border-radius: 10px; /* Rounded corners for the listing */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  }
+  
+  /* Heading Styles */
+  .product-listing h1 {
+    text-align: center; /* Center the heading */
+    color: #333; /* Dark text color */
+    margin-bottom: 20px; /* Margin below the heading */
+  }
+  
+  /* Product Grid Styles */
+  .products {
+    display: flex; /* Use flexbox for the product cards */
+    flex-wrap: wrap; /* Allow wrapping of items to the next line */
+    justify-content: space-between; /* Distribute space evenly */
+    gap: 20px; /* Gap between product cards */
+  }
+  
+  /* Individual Product Card Styles */
+  .product-card {
+    flex: 1 1 calc(33.333% - 20px); /* Responsive sizing, 3 cards per row */
+    background-color: #fff; /* Background for product card */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.2s; /* Transition effect for hover */
+    overflow: hidden; /* Clip overflowing content */
+  }
+  
+  /* Image Styles */
+  .product-card img {
+    width: 100%; /* Full width of the card */
+    height: 250px; /* Fixed height for images */
+    object-fit: cover; /* Maintain aspect ratio */
+  }
+  
+  /* Text Styles */
+  .product-card h3 {
+    text-align: center; /* Center the product name */
+    padding: 10px; /* Padding around product name */
+    color: #007bff; /* Emphasize with primary color */
+  }
+  
+  /* Hover Effect */
+  .product-card:hover {
+    transform: scale(1.02); /* Slightly enlarge on hover */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .product-card {
+      flex: 1 1 calc(50% - 20px); /* 2 cards per row on small screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .product-card {
+      flex: 1 1 100%; /* 1 card per row on very small screens */
+    }
+  }
+  

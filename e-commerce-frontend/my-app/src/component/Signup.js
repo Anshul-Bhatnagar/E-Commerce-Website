@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 //import { Navigate } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'
+import "./Signup.css"
 
 
 
@@ -45,29 +46,29 @@ const Signup = ({setIsLoggedIn}) => {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>username:</label>
-                    <input type = "text" name="username" value={formData.username} onChange={handleChange} required />
+        <div className='signup-main'>
+            <form className='formsignup' onSubmit={handleSubmit}>
+                <div className='slabel1'>
+                    <label className='slabel'>username:</label>
+                    <input className='sinput' type = "text" name="username" value={formData.username} onChange={handleChange} required />
 
 
                 </div>
-                <div>
-                    <label>email:</label>
-                    <input type = "email" name="email" value={formData.email} onChange={handleChange} required />
+                <div className='slabel2'>
+                    <label className='slabel'>email:</label>
+                    <input className='sinput' type = "email" name="email" value={formData.email} onChange={handleChange} required />
                     
 
                 </div>
-                <div>
-                    <label>password:</label>
-                    <input type = "password" name="password" value={formData.password} onChange={handleChange} required />
+                <div className='slabel3'>
+                    <label className='slabel'>password:</label>
+                    <input className='sinput' type = "password" name="password" value={formData.password} onChange={handleChange} required />
                     
 
                 </div>
-                <button type='submit'>sign up</button>
+                <button className='sbtn1' type='submit'>sign up</button>
 
-                <button onClick={() => navigate('/login')}>Go to Login</button>
+                <button className='sbtn2' onClick={() => navigate('/login')}>Go to Login</button>
             </form>
         </div>
     );
